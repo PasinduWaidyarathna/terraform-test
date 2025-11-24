@@ -9,8 +9,6 @@ jobs:
     steps:
       - name: Checkout (WRONG - always main)
         uses: actions/checkout@v4
-        with:
-          ref: main   # ❌ Forces main every time
 
       - name: Show branch
         run: |
