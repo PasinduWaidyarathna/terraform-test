@@ -1,0 +1,20 @@
+name: Correct Workflow Example
+
+on:
+  workflow_dispatch:
+
+jobs:
+  terraform-plan:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout correct branch
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: ${{ github.ref }}   # ✅ Real branch
+          # or: ref: ${{ github.ref_name }}
+
+      - name: Show branch
+        run: |
+          echo "Current branch:"
+          git branch --show-current
